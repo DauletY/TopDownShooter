@@ -481,6 +481,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   _band: {fileID: 4413456471136421435, guid: 90ac58dcc6953f34e8aabf73ed47480f, type: 3}
+  layer:
+    serializedVersion: 2
+    m_Bits: 545
   healthImg: {fileID: 863936161}
   deathPrefab: {fileID: 100004, guid: 02b91cd140a230f478dc25a0cedf9aff, type: 3}
   enemyCrtl: {fileID: 8105163676194933229}
+  stopDist: 2

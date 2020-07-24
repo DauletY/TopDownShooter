@@ -14,22 +14,22 @@ public class BandEnemy : MonoBehaviour
     private float speed;
     [SerializeField]
     private Transform _band;
-
+    public LayerMask layer;
     public Image healthImg;
     public GameObject deathPrefab;
+    public float stopDist;
     private Rigidbody2D r2;
 
-    public Transform enemyCrtl = null;
-   
+    bool inSight = false;
 
     private void Start()
     {
-        if (enemyCrtl == null)
-        {
-            print("...");
-        }
         r2 = GetComponent<Rigidbody2D>();
         _band = GameObject.Find("Player").GetComponent<Transform>();    
+
+        if(_band == null) {
+            print("nil");
+        }
     }
     private void Update()
     {
@@ -42,7 +42,26 @@ public class BandEnemy : MonoBehaviour
         float angle = Mathf.Atan2(lookDir.x, lookDir.y) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(-angle, Vector3.forward); 
 
-        Debug.DrawLine(transform.position, _band.position, Color.blue * 100f);
+        inSight = false;
+        if(stopDist > Vector2.Distance(transform.position, _band.position)) {
+            Vector2 targetDir = (_band.position - transform.position).normalized;
+            RaycastHit2D hit2D = Physics2D.Raycast(transform.position, targetDir, stopDist + 2f,layer); 
+            
+            /* if(hit2D.collider != null) {
+                    print("true: " + hit2D.collider.name);
+            }else {
+                 print("false" + hit2D.collider.name);    
+            }    */  
+            if(hit2D.collider.tag == "Player") {
+                  inSight = true;
+                  Debug.Log("player die!");
+                  //Band._health--;
+            }
+            Debug.DrawLine(transform.position, hit2D.point, Color.red);
+        }
+        /*
+      
+        Debug.DrawLine(transform.position,hit2D.point, Color.blue * 100f); */
     }
     public void Health()
     {

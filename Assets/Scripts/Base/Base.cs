@@ -18,7 +18,8 @@ public class Base
         A = 97,
         D = 100,
         S = 115,
-        W = 119
+        W = 119,
+        R = 114
     }
     public enum Shot
     {

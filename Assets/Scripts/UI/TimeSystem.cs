@@ -28,7 +28,7 @@ public class TimeSystem : MonoBehaviour
                 Go.gameObject.SetActive(false);
                 baseTime = 0;
                 // Start Coroutine
-                StartCoroutine(TopDowmView.Call("Test", time));
+                StartCoroutine(TopDownView.Call("Test", time));
                 Img.gameObject.SetActive(true);
             }
         }

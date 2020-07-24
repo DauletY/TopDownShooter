@@ -12,14 +12,14 @@ public class Menu : MonoBehaviour
 
     public float startTime, time;
     public new string name;
-    TopDowmView view;
+    TopDownView view;
     private void Start()
     {
-        view = new TopDowmView(button, button1, button2);
+        view = new TopDownView(button, button1, button2);
     }
     public void New_Game()
     {
-        StartCoroutine(TopDowmView.Call(name, time));
+        StartCoroutine(TopDownView.Call(name, time));
     }
     public void Save_Game()
     {
