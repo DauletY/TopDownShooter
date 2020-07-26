@@ -11,7 +11,9 @@ public class BandUI {
 }
 public class Band : MonoBehaviour
 {
-    public static int _health = 10;
+    public Transform cameraHere = null;
+    public float cameraZ = 0f;
+    public static float _health = 10;
     // клип өлшемі
     public static int clipSize = 20;
     // ату жылдамдығы
@@ -19,16 +21,20 @@ public class Band : MonoBehaviour
     // қайта зарядтау уақыты
     public static float reloadTime = 1f;
     public static Animator animator;
-    public float speed = 10;
+    public static float speed = 10;
     public static Rigidbody2D rb;
-    
-    
+    public static  GameObject activ;
+  
     Vector2 force = new Vector2();
     // Start is called before the first frame update
     void Start()
     {
+        _health= 10;
+        fireRate = 10;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        // cam here
+       cameraHere.position = new Vector3(transform.position.x, transform.position.y, cameraZ);
     }
 
     // Update is called once per frame
@@ -40,8 +46,7 @@ public class Band : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        cameraHere.position = new Vector3(rb.position.x ,rb.position.y, cameraZ);
         rb.AddForce(force, ForceMode2D.Impulse);
     }
-
-
 }

@@ -17,8 +17,8 @@ class BandWeapon : MonoBehaviour{
     public  static float timeToFire = 0;
     public  static int shotsFired = 0;
     public float effectSpawnRate = 10;
-    public AudioClip clip;
-    public AudioClip reloadClip;
+    public AudioClip clip= null;
+    public AudioClip reloadClip = null;
     BandUI bandUI = new BandUI();
     //---------------------------static members
     

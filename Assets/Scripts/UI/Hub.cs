@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Hub : MonoBehaviour
 {
-    public Slider slider;
+    public  Slider slider;
     public Text bullet;
-    private int lastHelath = 0;
+    public int lastHelath = 0;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -16,11 +16,11 @@ public class Hub : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.maxValue = Band._health;
+        //slider.maxValue = Band._health;
         // vitality =50
         if(lastHelath != Band._health) {
             slider.value = Band._health;
-            lastHelath = Band._health;
+            lastHelath = (int)Band._health;
             animator.SetBool("Update", true);
         }else {
             animator.SetBool("Update", false);

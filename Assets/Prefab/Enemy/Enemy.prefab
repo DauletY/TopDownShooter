@@ -486,5 +486,5 @@ MonoBehaviour:
     m_Bits: 545
   healthImg: {fileID: 863936161}
   deathPrefab: {fileID: 100004, guid: 02b91cd140a230f478dc25a0cedf9aff, type: 3}
-  enemyCrtl: {fileID: 8105163676194933229}
-  stopDist: 2
+  bandPrefab: {fileID: 100004, guid: 02b91cd140a230f478dc25a0cedf9aff, type: 3}
+  stopDist: 3.3

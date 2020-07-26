@@ -4,6 +4,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 public class Base
 {
+    public static Base Instance = null;
     public enum Move
     {
         rigth = 1, left = -1
@@ -34,7 +35,14 @@ public class Base
     private float y;
     private Vector2 getVector1;
     private Vector2 getVector2;
-
+    public static Base SingleInstance {
+        get {
+            if(Instance == null) {
+                Instance = new Base();
+            }
+            return Instance;
+        }
+    }
     public Base () { }
     public Base (float x , float y)
     {
@@ -211,7 +219,7 @@ public class Base
    
     public void UpdateAimController(Camera cam, Transform transform)
     {
-
+        if(cam == null ) return;
         Vector3 pos = cam.WorldToScreenPoint(transform.position);
         Vector3 dir = Input.mousePosition - pos;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg; // Константа преобразования радианов в градусы
