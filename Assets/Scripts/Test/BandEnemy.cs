@@ -71,7 +71,6 @@ public class BandEnemy : MonoBehaviour
                             }
                         }
             }
-            print("false");
     }
     public void Health()
     {
