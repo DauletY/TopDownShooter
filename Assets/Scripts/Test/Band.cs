@@ -11,7 +11,10 @@ public class BandUI {
 }
 public class Band : MonoBehaviour
 {
+    
+   
     public Transform cameraHere = null;
+    public GameObject pauseUI = null;
     public float cameraZ = 0f;
     public static float _health = 10;
     // клип өлшемі
@@ -40,6 +43,8 @@ public class Band : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if(GameManager.pauseMenuEnable) return;
+
         force = new Vector2(InputR.GetH,InputR.GetV);
         force *= speed;
         animator.SetFloat("speed", Mathf.Abs(force.x + force.y));

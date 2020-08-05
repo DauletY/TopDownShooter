@@ -20,6 +20,7 @@ public class Menu : MonoBehaviour
     public void New_Game()
     {
         StartCoroutine(TopDownView.Call(name, time));
+        Debug.Log("Start game");
     }
     public void Save_Game()
     {

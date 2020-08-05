@@ -47,6 +47,8 @@ class BandWeapon : MonoBehaviour{
     [System.Obsolete]
     private void Update()
     {
+        if(GameManager.pauseMenuEnable) return;
+
         if(reloading) return;
         if(InputR.GetKeyDown(Base.Keyboard.R)) {
             //  print("Reload");
